@@ -25,7 +25,7 @@
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 
-    NSDate *endDate = [dateFormatter dateFromString:[self getyyyymmdd]];
+    NSDate *endDate = [dateFormatter dateFromString:[self juGetEndDate]];
     NSDate *endDate_tomorrow = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([endDate timeIntervalSinceReferenceDate] + 24*3600)];
 
     countDown=[[JuCountDown alloc]init];
@@ -39,14 +39,13 @@
 }
 
 
--(NSString *)getyyyymmdd{
+-(NSString *)juGetEndDate{
     NSDate *now = [NSDate date];
     NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
     formatDay.dateFormat = @"yyyy-MM-dd";
     NSString *dayStr = [formatDay stringFromDate:now];
 
     return dayStr;
-
 }
 
 - (void)didReceiveMemoryWarning {
